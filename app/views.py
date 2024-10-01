@@ -1,14 +1,21 @@
 from app.models import Estudante, Curso, Matricula
 from app.serializers import EstudanteSerializer, CursoSerializer, MatriculaSerializer, \
-    ListaMatriculaEstudanteSerializer, ListaMatriculaCursoSerializer
-from rest_framework import viewsets, generics
+    ListaMatriculaEstudanteSerializer, ListaMatriculaCursoSerializer, EstudanteSerializerV2
+from rest_framework import viewsets, generics, filters
 from rest_framework.permissions import IsAdminUser
+from django_filters.rest_framework import DjangoFilterBackend
 
 class EstudanteViewSet(viewsets.ModelViewSet):
     # apenas usuario autenticados podem acessar! segurança
     queryset = Estudante.objects.all()
-    serializer_class = EstudanteSerializer
-
+    #serializer_class = EstudanteSerializer
+    filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
+    ordering_fields = ['nome']
+    search_fields = ['nome','cpf']
+    def get_serializer_class(self):
+        if self.request.version == 'v2':
+            return EstudanteSerializerV2
+        return EstudanteSerializer
 
 class CursoViewSet(viewsets.ModelViewSet):
     # apenas Admins podem acessar! segurança
