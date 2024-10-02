@@ -6,6 +6,13 @@ Year: 2024
 Language: Python<br>
 Framework: Django especifically Django REST Framework<br>
 
+### Documentação
+## Redoc:
+![image](https://github.com/user-attachments/assets/a8248070-80d9-45ab-97b1-5edfa5a3da53)
+
+## Swagger:
+![image](https://github.com/user-attachments/assets/2d06a66a-20f6-4207-a7d9-b6fb1c6e3977)
+
 
 ("/")
 ![image](https://github.com/user-attachments/assets/0803649c-1701-47b8-b916-ff0aaee7bbe6)
