@@ -6,6 +6,11 @@ Year: 2024
 Language: Python<br>
 Framework: Django especifically Django REST Framework<br>
 
+### Frontend(não desenvolvida por mim e sim pelo Vinicius)
+Apenas fiz a integração com minha API
+![image](https://github.com/user-attachments/assets/375b912e-ff74-4fde-a161-48504f774e06)
+
+
 ### Documentação
 ## Redoc:
 ![image](https://github.com/user-attachments/assets/a8248070-80d9-45ab-97b1-5edfa5a3da53)
