@@ -2,7 +2,7 @@ from app.models import Estudante, Curso, Matricula
 from app.serializers import EstudanteSerializer, CursoSerializer, MatriculaSerializer, \
     ListaMatriculaEstudanteSerializer, ListaMatriculaCursoSerializer, EstudanteSerializerV2
 from rest_framework import viewsets, generics, filters
-from rest_framework.permissions import IsAdminUser
+from rest_framework.permissions import IsAuthenticatedOrReadOnly
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.throttling import UserRateThrottle
 
@@ -22,8 +22,8 @@ class EstudanteViewSet(viewsets.ModelViewSet):
 
 
 class CursoViewSet(viewsets.ModelViewSet):
-    permission_classes = [IsAdminUser]
-
+    permission_classes = [IsAuthenticatedOrReadOnly]
+    serializer_class = CursoSerializer
     queryset = Curso.objects.all().order_by('id')
     filter_backends = [DjangoFilterBackend, filters.OrderingFilter, filters.SearchFilter]
     ordering_fields = ['codigo']
